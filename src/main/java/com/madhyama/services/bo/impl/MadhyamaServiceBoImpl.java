@@ -18,7 +18,14 @@ public class MadhyamaServiceBoImpl implements MadhyamaServiceBo, URIConstants {
 	@Override
 	public String getCovid19Data(String path) throws Exception {
 		CommonUtils commonUtils = new CommonUtils();
-		return commonUtils.getDataFromURI(URI_COVID19+path);
+		return commonUtils.getDataFromURL(URI_COVID19+path);
+	}
+
+	@Override
+	public String getGHOData(String path) throws Exception {
+		CommonUtils commonUtils = new CommonUtils();
+		String GHOXMLData = commonUtils.getXMLDataFromURL(URI_GHO+path);
+		return commonUtils.convertXMLToJSON(GHOXMLData);
 	}
 
 }

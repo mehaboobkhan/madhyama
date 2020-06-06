@@ -9,5 +9,6 @@ package com.madhyama.services.constants;
 public interface URIConstants {
 
 	public static final String URI_COVID19 = "https://api.covid19api.com/";
+	public static final String URI_GHO = "https://apps.who.int/gho/athena/";
 	
 }

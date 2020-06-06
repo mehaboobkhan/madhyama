@@ -9,5 +9,6 @@ package com.madhyama.services.constants;
 public interface MadhyamaURIConstants {
 	
 	public static final String MADHYAMA_COVID19 = "/madhyama/covid19";
+	public static final String MADHYAMA_GHO = "/madhyama/gho";
 
 }
