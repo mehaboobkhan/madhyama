@@ -1,0 +1,197 @@
+{
+  "apis": {
+    "apis": {
+      "Name": "Get all API details in Madhyama",
+      "Description": "Returns details of all the APIs present in Madhyama",
+      "Path": "/apis",
+      "Example": "http://localhost:8080/madhyama/apis"
+    }
+  },
+  "covid19": {
+    "allRoute": {
+      "Name": "Get All Data",
+      "Description": "Returns all data in the system. Warning: this request returns 8MB+ and takes 5+ seconds",
+      "Path": "/covid19/all",
+      "Example": "http://localhost:8080/madhyama/covid19/all"
+    },
+    "countriesRoute": {
+      "Name": "Get List Of Countries",
+      "Description": "Returns all countries and associated provinces. The country_slug variable is used for country specific data",
+      "Path": "/covid19/countries",
+      "Example": "http://localhost:8080/madhyama/covid19/countries"
+    },
+    "countryDayOneRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india"
+    },
+    "countryDayOneTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/dayone/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/total/dayone/country/india"
+    },
+    "countryRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india or https://localhost:8080/madhyama/covid19/country/india?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusDayOneLiveRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case, updated with latest live count",
+      "Description": "Returns all cases by case type for a country from the first recorded case with the latest record being the live count. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country/status/:status/live",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india/status/confirmed/live"
+    },
+    "countryStatusDayOneRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india/status/confirmed"
+    },
+    "countryStatusDayOneTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/dayone/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/total/dayone/country/india/status/confirmed"
+    },
+    "countryStatusLiveRoute": {
+      "Name": "Daily list of cases per Country per Province by Case Type, updated with latest live count",
+      "Description": "Returns all cases by case type for a country with the latest record being the live count. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country/status/:status/live",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india/status/confirmed/live or https://localhost:8080/madhyama/covid19/country/india/status/confirmed/live?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india/status/confirmed or https://localhost:8080/madhyama/covid19/country/india/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/total/country/india/status/confirmed or https://localhost:8080/madhyama/covid19/total/country/india/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/total/country/india"
+    },
+    "exportRoute": {
+      "Name": "Get All Data as a zip file",
+      "Description": "Returns all data in the system, compressed as a zip file. Warning: this request returns 8MB+ and takes 5+ seconds",
+      "Path": "/covid19/export",
+      "Example": "http://localhost:8080/madhyama/covid19/export"
+    },
+    "liveCountryRoute": {
+      "Name": "Get Live List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/live/country/india"
+    },
+    "liveCountryStatusAfterDateRoute": {
+      "Name": "Get a Time Series Of Cases Per Country Per Province By Case Type After A Date",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country/status/:status/date/:date",
+      "Example": "http://localhost:8080/madhyama/covid19/live/country/india/status/confirmed/date/2020-03-21T13:13:30Z"
+    },
+    "liveCountryStatusRoute": {
+      "Name": "Get a time series Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country/status/:status",
+      "Example": "http: / /localhost: 8080 / madhyama / covid19 / live / country / india / status / confirmed "
+    },
+    "summaryRoute": {
+      "Name": "Summary of new and total cases per country",
+      "Description": "A summary of new and total cases per country",
+      "Path": "/covid19/summary",
+      "Example": "http://localhost:8080/madhyama/covid19/summary"
+    },
+    "webhookRoute": {
+      "Name": "Add a webhook to be notified when new data becomes available",
+      "Description": "POST Request must be in JSON format with key URL and the value of the webhook. Response data is the same as returned from /summary",
+      "Path": "/covid19/webhook",
+      "Example": "http://localhost:8080/madhyama/covid19/webhook"
+    },
+    "worldWIPRoute": {
+      "Name": "Get World WIP",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/world",
+      "Example": "http://localhost:8080/world?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "worldWIPTotalRoute": {
+      "Name": "Get total World WIP",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/world/total",
+      "Example": "http://localhost:8080/world/total"
+    },
+    "statisticsRoute": {
+      "Name": "Get Complete Statistics",
+      "Description": "This route returns the usage of the API. This is not for any COVID related statistics.",
+      "Path": "/covid19/stats",
+      "Example": "http://localhost:8080/stats"
+    }
+  },
+  "gho": {
+    "ghoDimenstionsList": {
+      "Name": "Retrieving the list of available dimensions",
+      "Description": "Simply specifying the madhyama/gho/api/ URL will provide you with the list of available dimension codes.",
+      "Path": "/madhyama/gho/api/",
+      "Example": "http://localhost:8080/madhyama/gho/api/"
+    },
+    "ghoDimenstionCodesList": {
+      "Name": "Retrieving a list of available codes for a specific dimension",
+      "Description": "By appending a dimension code to the Athena data URL, you can retrieve the list of codes associated with that specific dimension. For example to retrieve the list of indicator codes, stored in the dimension GHO.",
+      "Path": "/madhyama/gho/api/:dimension",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO"
+    },
+    "ghoRegionCodesList": {
+      "Name": "Retrieving GHO Region codes",
+      "Description": "Simply specifying the madhyama/gho/api/REGION URL will provide you with the list of available regions codes.",
+      "Path": "/madhyama/gho/api/REGION",
+      "Example": "http://localhost:8080/madhyama/gho/api/REGION"
+    },
+    "ghoData": {
+      "Name": "Retrieving data",
+      "Description": "Specify a target to download by specifying both a dimension and a code within that dimension. This will return all associated data for the target in the Observatory's JSON format. Building on the previous example, take the code WHOSIS_000001, Life expectancy at birth and retrieve the data for this indicator.",
+      "Path": "/madhyama/gho/api/:dimension/:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO/WHOSIS_000001"
+    },
+    "ghoFilteringData": {
+      "Name": "Filtering data",
+      "Description": "You can filter the data returned by the web service by identifying specific dimensions and dimension codes that you wish to include or exclude. Use the URL parameter filter with a list of fully qualified dimension codes separated by semicolons. A fully qualified dimension code consists of the dimension label, a colon, and the code for a member of that dimension. For example, the fully qualified code for the country of Botswana is COUNTRY:BWA. Continuing to build on the query from the previous example, if you wish to see the life expectancy at birth data for Botswana and life expectancy in Botswana for both combined sexes for the year 2011.",
+      "Path": "/madhyama/gho/api/:dimension/:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO/WHOSIS_000001?filter=COUNTRY:BWA;YEAR:2011;SEX:BTSX"
+    },
+    "ghoMultipleTargets": {
+      "Name": "Retrieving multiple targets",
+      "Description": "You can retrieve multiple target codes from a single query, as long as those target codes come from the same dimension, such as GHO Measure (GHO). Simply append the additional codes to the first target, separating them with commas (','). For example, we can retrieve both life expectancy at birth, WHOSIS_000001, and life expectancy at 60, WHOSIS_000015.",
+      "Path": "/madhyama/gho/api/:dimension/:dimensioncode,:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO/life_expectancy?target=GHO/WHOSIS_000001,WHOSIS_000015"
+    },
+    "ghoOnlyCountryOrRegionData": {
+      "Name": "Retrieving only country or regional data",
+      "Description": "You can retrieve only country data and exclude regional data using the filter parameter. In addition to specifying specific fully qualified dimension member codes, you can also specify two special cases: You can specify that a dimension must be set for a fact to be returned for a query by using an asterisk, '*', for example, filter=COUNTRY:* requires that any returned fact must have a country dimension. You can specify that a dimension must not be set for a fact to be returned for a query by using a hyphen, '-', for example, filter=COUNTRY:- requires that any returned fact must not have a country dimension. If we wish to retrieve only country data for our previous example query, use COUNTRY. And if we wish to retrieve only regional data for the same indicator, use COUNTRY:-;REGION:*.",
+      "Path": "/madhyama/gho/api/:dimension/:dimensioncode,:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO/WHOSIS_000001?filter=COUNTRY:* or http://localhost:8080/madhyama/gho/api/GHO/WHOSIS_000001?filter=COUNTRY:-;REGION:*"
+    },
+    "ghoCountryInSpecificRegionData": {
+      "Name": "Retrieving data for countries in a specific region",
+      "Description": "You can then use one or more of these codes to restrict query results to countries belonging to the specified region(s). For example, if we to retrieve the life expectancy data for countries in Europe, we use the region code REGION:EUR and also specify COUNTRY:* because we are only interested in the country data itself and not the regional aggregate.",
+      "Path": "/madhyama/gho/api/:dimension/:dimensioncode,:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/api/GHO/WHOSIS_000001?filter=COUNTRY:*;REGION:EUR"
+    },
+    "ghoUsingDimemsionMemberAttributesData": {
+      "Name": "Retrieving data using dimension member attributes",
+      "Description": "Filters can be specified to select dimension member codes based on their attribute values, using by specifying a filter of the form: &filter=DIMENSIONCODE:*,ATTR1=VALUE1[,ATTR2=VALUE2]. For example, if you wish to retrieve data, say for life expectancy, for all countries whose ISO code starts with an A. You must specify attribute codes that are recognized for the dimension you with to use. Several attributes can be specified by seperating them with a comma character. Multiple attributes will be ANDed together in order to derive the final list of dimension member codes for the specified dimension.",
+      "Path": "/madhyama/gho/data/:dimension/:dimensioncode,:dimensioncode",
+      "Example": "http://localhost:8080/madhyama/gho/data/GHO/WHOSIS_000001?filter=COUNTRY:*,ISO=A__"
+    }
+  },
+  "worldBank": {
+    
+  }
+}
