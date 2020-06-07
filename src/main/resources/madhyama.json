@@ -186,6 +186,89 @@
     }
   },
   "worldBank": {
-    
+    "countryData": {
+      "Name": "Requesting all countries data",
+      "Description": "The following information will appear, when available, in the response when using this country query through the World Bank API: 1. 3 letter ISO 3166-1 alpha-3 code. 2. 2 letter ISO 3166-1 alpha-2 code. 3. Name. 4. Region: ID, name and World Bank 2 letter code. 5. Income Level: ID, name and World Bank 2 letter code 6. Lending Type: ID, name and World Bank 2 letter code. 7. Capital City. 8. Longitude. 9. Latitude.",
+      "Path": "/madhyama/worldbank/country",
+      "Example": "http://localhost:8080/madhyama/worldbank/country"
+    },
+    "oneCountryData": {
+      "Name": "Requesting one country data",
+      "Description": "The following information will appear, when available, in the response when using this country query through the World Bank API: 1. 3 letter ISO 3166-1 alpha-3 code. 2. 2 letter ISO 3166-1 alpha-2 code. 3. Name. 4. Region: ID, name and World Bank 2 letter code. 5. Income Level: ID, name and World Bank 2 letter code 6. Lending Type: ID, name and World Bank 2 letter code. 7. Capital City. 8. Longitude. 9. Latitude. Note: The API returns ISO 3 and ISO 2 codes wherever present. If ISO codes are not available, it returns WB 3 and WB 2 codes. For example, Channel Islands return WB 3 code CHI and WB2 code JG. You can apply a filter to see all countries in a specified aggregate",
+      "Path": "/madhyama/worldbank/country/:countrycode(;:countrycode)",
+      "Example": "http://localhost:8080/madhyama/worldbank/country/br;aw and http://localhost:8080/madhyama/worldbank/country/country?region=LCN"
+    },
+    "sourceData": {
+      "Name": "Requesting all source data",
+      "Description": "You get complete source data list.",
+      "Path": "/madhyama/worldbank/source",
+      "Example": "http://localhost:8080/madhyama/worldbank/source"
+    },
+    "oneSourceData": {
+      "Name": "Requesting one source data",
+      "Description": "You get source data of the specified source id.",
+      "Path": "/madhyama/worldbank/source/:sourceid(;:sourceid)",
+      "Example": "http://localhost:8080/madhyama/worldbank/sourceid/11"
+    },
+    "indicatorCode": {
+      "Name": "Requesting all indicator codes",
+      "Description": "Requesting indicator codes. Indicators represent data like total population, gross national income, energy use, and many more. Indicator queries return the following information in the response: Code, Name, Unit, Source ID, Source Note, Source Organization, Topic ID, Topic Name.",
+      "Path": "/madhyama/worldbank/indicator",
+      "Example": "http://localhost:8080/madhyama/worldbank/indicator"
+    },
+    "oneIndicatorCode": {
+      "Name": "Requesting one indicator code data",
+      "Description": "",
+      "Path": "/madhyama/worldbank/indicator/:indicatorcode",
+      "Example": "To request the indicator GDP (Current US$), use its indicator code, NY.GDP.MKTP.CD: http://localhost:8080/madhyama/worldbank/indicator/NY.GDP.MKTP.CD"
+    },
+    "indicatorData": {
+      "Name": "Requesting indicator data",
+      "Description": "Aggregates—by region, income level or lending group—are also available in the API. You can retrieve data for aggregates by using the appropriate code where you would otherwise specify a country.",
+      "Path": "/madhyama/worldbank/country/:countrycode/indicator/NY.GDP.MKTP.CD",
+      "Example": "The following two examples retrieve GDP data for Brazil (BRA) and the Latin America: http://localhost:8080/madhyama/worldbank/country/BRA/indicator/NY.GDP.MKTP.CD"
+    },
+    "indicatorDataUsingSourceId": {
+      "Name": "Requesting indicator data using Source Id",
+      "Description": "Sometimes indicators belong to multiple sources. To find an indicator from a specific source, the indicator’s source ID must be provided as a query parameter.",
+      "Path": "/madhyama/worldbank/country/:countrycode/indicator/NY.GDP.MKTP.CD",
+      "Example": "http://localhost:8080/madhyama/worldbank/indicator/NY.GDP.MKTP.CD?source=11 and http://localhost:8080/madhyama/worldbank/source/11/indicator/NY.GDP.MKTP.CD"
+    },
+    "regionCode": {
+      "Name": "Requesting regions codes",
+      "Description": "To get the definition list for all Region codes.",
+      "Path": "/madhyama/worldbank/region",
+      "Example": "http://localhost:8080/madhyama/worldbank/region"
+    },
+    "oneRegionCode": {
+      "Name": "Requesting one region code",
+      "Description": "To get the definition list for one Region code.",
+      "Path": "/madhyama/worldbank/region/:regioncode(;:regioncode)",
+      "Example": "http://localhost:8080/madhyama/worldbank/region/LCN"
+    },
+    "levelCode": {
+      "Name": "Requesting all income level codes",
+      "Description": "To get the list of all Income Level code definitions.",
+      "Path": "/madhyama/worldbank/incomelevel",
+      "Example": "http://localhost:8080/madhyama/worldbank/incomelevel"
+    },
+    "oneLevelCode": {
+      "Name": "Requesting one income level code",
+      "Description": "To get the single Income Level code definitions.",
+      "Path": "/madhyama/worldbank/incomelevel/:incomelevelcode(;:incomelevelcode)",
+      "Example": "http://localhost:8080/madhyama/worldbank/incomelevel/UMC"
+    },
+    "lendingTypeCode": {
+      "Name": "Requesting all lending type codes",
+      "Description": "To get the list of all Lending Type code definitions.",
+      "Path": "/madhyama/worldbank/lendingtypes",
+      "Example": "http://localhost:8080/madhyama/worldbank/lendingtypes"
+    },
+    "oneLendingTypeCode": {
+      "Name": "Requesting one lending type code",
+      "Description": "To get the single Lending Type code definitions.",
+      "Path": "/madhyama/worldbank/lendingtypes/:lendingtypescode(;:lendingtypescode)",
+      "Example": "http://localhost:8080/madhyama/worldbank/IBD;IDB"
+    }
   }
 }
