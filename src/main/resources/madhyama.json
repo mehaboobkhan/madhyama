@@ -80,12 +80,6 @@
       "Path": "/covid19/total/country/:country",
       "Example": "http://localhost:8080/madhyama/covid19/total/country/india"
     },
-    "exportRoute": {
-      "Name": "Get All Data as a zip file",
-      "Description": "Returns all data in the system, compressed as a zip file. Warning: this request returns 8MB+ and takes 5+ seconds",
-      "Path": "/covid19/export",
-      "Example": "http://localhost:8080/madhyama/covid19/export"
-    },
     "liveCountryRoute": {
       "Name": "Get Live List Of Cases Per Country Per Province By Case Type",
       "Description": "Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
