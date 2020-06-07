@@ -8,6 +8,8 @@ import java.net.URL;
 import org.json.JSONObject;
 import org.json.XML;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * This class contains all the generic utilities used across the application.
  * 
@@ -46,7 +48,6 @@ public class CommonUtils {
 		return response.toString();
 	}
 
-
 	/**
 	 <p>Gets XML data from http url</p></br>
 	 <b>@param</b> accepts url</br>
@@ -69,8 +70,6 @@ public class CommonUtils {
 		return response.toString();
 	}
 
-
-
 	/**
 	 <p>Converts XML to JSON String</p></br>
 	 <b>@param</b> accepts xml String</br>
@@ -86,6 +85,25 @@ public class CommonUtils {
 			e.printStackTrace();
 		}
 		return json.toString();
+	}
+	
+	/**
+	 <p>Converts JSON String to Pretty Printer Format</p></br>
+	 <b>@param</b> accepts JSON String</br>
+	 <b>@return</b> Pretty Printer formatted JSON string</b> </br>
+	 <b>@see </br>
+	 <b>@since</b> 1.0 </br>
+	 */
+	public String convertJSONToPrettyPrinterJSON(String jsonString) {
+		String prettyPrinterJSON = jsonString;
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			Object jsonObject = mapper.readValue(jsonString, Object.class);
+			prettyPrinterJSON = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return prettyPrinterJSON;
 	}
 
 }

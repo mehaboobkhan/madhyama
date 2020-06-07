@@ -1,0 +1,144 @@
+{
+  "apis": {
+    "apis": {
+      "Name": "Get all API details in Madhyama",
+      "Description": "Returns details of all the APIs present in Madhyama",
+      "Path": "/apis",
+      "Example": "http://localhost:8080/madhyama/apis"
+    }
+  },
+  "covid19": {
+    "allRoute": {
+      "Name": "Get All Data",
+      "Description": "Returns all data in the system. Warning: this request returns 8MB+ and takes 5+ seconds",
+      "Path": "/covid19/all",
+      "Example": "http://localhost:8080/madhyama/covid19/all"
+    },
+    "countriesRoute": {
+      "Name": "Get List Of Countries",
+      "Description": "Returns all countries and associated provinces. The country_slug variable is used for country specific data",
+      "Path": "/covid19/countries",
+      "Example": "http://localhost:8080/madhyama/covid19/countries"
+    },
+    "countryDayOneRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india"
+    },
+    "countryDayOneTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/dayone/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/total/dayone/country/india"
+    },
+    "countryRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india or https://localhost:8080/madhyama/covid19/country/india?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusDayOneLiveRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case, updated with latest live count",
+      "Description": "Returns all cases by case type for a country from the first recorded case with the latest record being the live count. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country/status/:status/live",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india/status/confirmed/live"
+    },
+    "countryStatusDayOneRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/dayone/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/dayone/country/india/status/confirmed"
+    },
+    "countryStatusDayOneTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type From The First Recorded Case",
+      "Description": "Returns all cases by case type for a country from the first recorded case. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/dayone/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/total/dayone/country/india/status/confirmed"
+    },
+    "countryStatusLiveRoute": {
+      "Name": "Daily list of cases per Country per Province by Case Type, updated with latest live count",
+      "Description": "Returns all cases by case type for a country with the latest record being the live count. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country/status/:status/live",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india/status/confirmed/live or https://localhost:8080/madhyama/covid19/country/india/status/confirmed/live?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusRoute": {
+      "Name": "Get List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/country/india/status/confirmed or https://localhost:8080/madhyama/covid19/country/india/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryStatusTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/country/:country/status/:status",
+      "Example": "http://localhost:8080/madhyama/covid19/total/country/india/status/confirmed or https://localhost:8080/madhyama/covid19/total/country/india/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "countryTotalRoute": {
+      "Name": "Get List Of Cases Per Country By Case Type",
+      "Description": "Returns all cases by case type for a country. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/total/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/total/country/india"
+    },
+    "exportRoute": {
+      "Name": "Get All Data as a zip file",
+      "Description": "Returns all data in the system, compressed as a zip file. Warning: this request returns 8MB+ and takes 5+ seconds",
+      "Path": "/covid19/export",
+      "Example": "http://localhost:8080/madhyama/covid19/export"
+    },
+    "liveCountryRoute": {
+      "Name": "Get Live List Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country",
+      "Example": "http://localhost:8080/madhyama/covid19/live/country/india"
+    },
+    "liveCountryStatusAfterDateRoute": {
+      "Name": "Get a Time Series Of Cases Per Country Per Province By Case Type After A Date",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country/status/:status/date/:date",
+      "Example": "http://localhost:8080/madhyama/covid19/live/country/india/status/confirmed/date/2020-03-21T13:13:30Z"
+    },
+    "liveCountryStatusRoute": {
+      "Name": "Get a time series Of Cases Per Country Per Province By Case Type",
+      "Description": "Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the country_slug from /countries. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/live/country/:country/status/:status",
+      "Example": /covid19"http://localhost:8080/madhyama/covid19/live/country/india/status/confirmed"
+    },
+    "summaryRoute": {
+      "Name": "Summary of new and total cases per country",
+      "Description": "A summary of new and total cases per country",
+      "Path": "/covid19/summary",
+      "Example": "http://localhost:8080/madhyama/covid19/summary"
+    },
+    "webhookRoute": {
+      "Name": "Add a webhook to be notified when new data becomes available",
+      "Description": "POST Request must be in JSON format with key URL and the value of the webhook. Response data is the same as returned from /summary",
+      "Path": "/covid19/webhook",
+      "Example": "http://localhost:8080/madhyama/covid19/webhook"
+    },
+    "worldWIPRoute": {
+      "Name": "Get World WIP",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/world",
+      "Example": "http://api.covid19api.com/world?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z"
+    },
+    "worldWIPTotalRoute": {
+      "Name": "Get total World WIP",
+      "Description": "Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths",
+      "Path": "/covid19/world/total",
+      "Example": "http://api.covid19api.com/world/total"
+    },
+    "statisticsRoute": {
+      "Name": "Get Complete Statistics",
+      "Description": "This route returns the usage of the API. This is not for any COVID related statistics.",
+      "Path": "/covid19/stats",
+      "Example": "http://api.covid19api.com/stats"
+    }
+  },
+  "gho": {
+    
+  },
+  "worldBank": {
+    
+  }
+}
