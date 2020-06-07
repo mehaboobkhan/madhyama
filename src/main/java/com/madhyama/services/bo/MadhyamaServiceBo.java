@@ -30,7 +30,7 @@ public interface MadhyamaServiceBo {
 	 * <p>Gets Global Health Observatory - World Health Organization's data and statistics content</p>
 	 * <b>@param</b> accepts path String</br>
 	 * <b>@return</b> a json String response</br>
-	 * <b>@see //https://apps.who.int/gho/athena/public_docs/examples.html</br>
+	 * <b>@see https://apps.who.int/gho/athena/public_docs/examples.html</br>
 	 * <b>@since</b> 1.0 </br>
 	 */
 	public String getGHOData(String path) throws Exception;
@@ -39,7 +39,7 @@ public interface MadhyamaServiceBo {
 	 * <p>Gets World Bank's Data</p>
 	 * <b>@param</b> accepts path String</br>
 	 * <b>@return</b> a json String response</br>
-	 * <b>@see //https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information</br>
+	 * <b>@see https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information</br>
 	 * <b>@since</b> 1.0 </br>
 	 */
 	public String getWorldBankData(String path) throws Exception;

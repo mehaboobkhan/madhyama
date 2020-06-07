@@ -61,7 +61,7 @@ public class MadhyamaController {
 	@RequestMapping(value = MadhyamaURIConstants.MADHYAMA_GHO+"/**", method = RequestMethod.GET)
 	public @ResponseBody String getGHOData(HttpServletRequest request) throws Exception{
 		String path = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
-		path = path.substring(MadhyamaURIConstants.MADHYAMA_GHO.length()+1,path.length());
+		path = path.substring(MadhyamaURIConstants.MADHYAMA_GHO.length()+1,path.length())+"/";
 		return madhyamaServiceBo.getGHOData(path);
 	}
 
