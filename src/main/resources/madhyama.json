@@ -192,9 +192,9 @@
       "Path": "/madhyama/worldbank/country",
       "Example": "http://localhost:8080/madhyama/worldbank/country"
     },
-    "oneCountryData": {
-      "Name": "Requesting one country data",
-      "Description": "The following information will appear, when available, in the response when using this country query through the World Bank API: 1. 3 letter ISO 3166-1 alpha-3 code. 2. 2 letter ISO 3166-1 alpha-2 code. 3. Name. 4. Region: ID, name and World Bank 2 letter code. 5. Income Level: ID, name and World Bank 2 letter code 6. Lending Type: ID, name and World Bank 2 letter code. 7. Capital City. 8. Longitude. 9. Latitude. Note: The API returns ISO 3 and ISO 2 codes wherever present. If ISO codes are not available, it returns WB 3 and WB 2 codes. For example, Channel Islands return WB 3 code CHI and WB2 code JG. You can apply a filter to see all countries in a specified aggregate",
+    "specificCountriesData": {
+      "Name": "Requesting specific countries data using countrycode",
+      "Description": "The following information will appear, when available, in the response when using this country query through the World Bank API: 1. 3 letter ISO 3166-1 alpha-3 code. 2. 2 letter ISO 3166-1 alpha-2 code. 3. Name. 4. Region: ID, name and World Bank 2 letter code. 5. Income Level: ID, name and World Bank 2 letter code 6. Lending Type: ID, name and World Bank 2 letter code. 7. Capital City. 8. Longitude. 9. Latitude. Note: The API returns ISO 3 and ISO 2 codes wherever present. If ISO codes are not available, it returns WB 3 and WB 2 codes. For example, Channel Islands return WB 3 code CHI and WB2 code JG. You can apply a filter to see all countries in a specified aggregate. To list specific countries data, separating multiple codes with semicolons (;)",
       "Path": "/madhyama/worldbank/country/:countrycode(;:countrycode)",
       "Example": "http://localhost:8080/madhyama/worldbank/country/br;aw and http://localhost:8080/madhyama/worldbank/country/country?region=LCN"
     },
@@ -204,8 +204,8 @@
       "Path": "/madhyama/worldbank/source",
       "Example": "http://localhost:8080/madhyama/worldbank/source"
     },
-    "oneSourceData": {
-      "Name": "Requesting one source data",
+    "specificSourcesData": {
+      "Name": "Requesting specific sources data",
       "Description": "You get source data of the specified source id.",
       "Path": "/madhyama/worldbank/source/:sourceid(;:sourceid)",
       "Example": "http://localhost:8080/madhyama/worldbank/sourceid/11"
@@ -216,8 +216,8 @@
       "Path": "/madhyama/worldbank/indicator",
       "Example": "http://localhost:8080/madhyama/worldbank/indicator"
     },
-    "oneIndicatorCode": {
-      "Name": "Requesting one indicator code data",
+    "specificIndicatorCode": {
+      "Name": "Requesting specific indicators code data",
       "Description": "",
       "Path": "/madhyama/worldbank/indicator/:indicatorcode",
       "Example": "To request the indicator GDP (Current US$), use its indicator code, NY.GDP.MKTP.CD: http://localhost:8080/madhyama/worldbank/indicator/NY.GDP.MKTP.CD"
@@ -240,8 +240,8 @@
       "Path": "/madhyama/worldbank/region",
       "Example": "http://localhost:8080/madhyama/worldbank/region"
     },
-    "oneRegionCode": {
-      "Name": "Requesting one region code",
+    "specificRegionsCode": {
+      "Name": "Requesting specific regions code",
       "Description": "To get the definition list for one Region code.",
       "Path": "/madhyama/worldbank/region/:regioncode(;:regioncode)",
       "Example": "http://localhost:8080/madhyama/worldbank/region/LCN"
@@ -252,8 +252,8 @@
       "Path": "/madhyama/worldbank/incomelevel",
       "Example": "http://localhost:8080/madhyama/worldbank/incomelevel"
     },
-    "oneLevelCode": {
-      "Name": "Requesting one income level code",
+    "specificLevelsCode": {
+      "Name": "Requesting specific income levels code",
       "Description": "To get the single Income Level code definitions.",
       "Path": "/madhyama/worldbank/incomelevel/:incomelevelcode(;:incomelevelcode)",
       "Example": "http://localhost:8080/madhyama/worldbank/incomelevel/UMC"
@@ -264,11 +264,101 @@
       "Path": "/madhyama/worldbank/lendingtypes",
       "Example": "http://localhost:8080/madhyama/worldbank/lendingtypes"
     },
-    "oneLendingTypeCode": {
-      "Name": "Requesting one lending type code",
+    "specificLendingTypesCode": {
+      "Name": "Requesting specific lending types code",
       "Description": "To get the single Lending Type code definitions.",
       "Path": "/madhyama/worldbank/lendingtypes/:lendingtypescode(;:lendingtypescode)",
       "Example": "http://localhost:8080/madhyama/worldbank/IBD;IDB"
+    },
+    "topics": {
+      "Name": "Requesting topics data",
+      "Description": "Topics are high level categories to which all indicators are mapped. Agriculture & Rural Development, Education, and Trade are examples of topics.",
+      "Path": "/madhyama/worldbank/topics",
+      "Example": "http://localhost:8080/madhyama/worldbank/topics"
+    },
+    "specificTopicsData": {
+      "Name": "Requesting specific topics data using topicids",
+      "Description": "To list specific topics, separating multiple codes with semicolons (;)",
+      "Path": "/madhyama/worldbank/topics/:topicId(;:topicid)",
+      "Example": "http://localhost:8080/madhyama/worldbank/topics/5;11"
+    },
+    "indicatorsUnderSpecificTopics": {
+      "Name": "Requesting all indicators in specified topic",
+      "Description": "To list all indicators under a specified topic",
+      "Path": "/madhyama/worldbank/topics/:topicId(;:topicid)",
+      "Example": "http://localhost:8080/madhyama/worldbank/topic/5/indicator or http://localhost:8080/madhyama/worldbank/indicator?topic=5"
+    },
+    "concept": {
+      "Name": "Concept Queries",
+      "Description": "This call will return the following information, when available, about concepts of a specific source. Source ID, Concept ID and Concept Name",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/data",
+      "Example": "To request a list of all available concepts: http://localhost:8080/madhyama/worldbank/sources/2/concepts/data"
+    },
+    "specificConcept": {
+      "Name": "Specific Concept Details",
+      "Description": "This call will return the following information, when available, about concepts of a specific source. Source ID, Concept ID and Concept Name",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/:conceptid/data",
+      "Example": "To retrieve a specific concept detail for a source (in this example, Concept ID is “Country” and Source is “WDI Database Archives” or source 57): http://localhost:8080/madhyama/worldbank/sources/57/concepts/Country/data"
+    },
+    "conceptMetadata": {
+      "Name": "Concept Metadata",
+      "Description": "This call will return the metadata information, when available, about concepts of a specific source. Source ID, Source Name, Concept ID and Concept Name",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/metadata",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/57/concepts/metadata"
+    },
+    "specificConceptMetadata": {
+      "Name": "Specific Concept Metadata",
+      "Description": "To retrieve a specific concept metadata detail for a source.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/:conceptid/metadata",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/57/concepts/country/metadata"
+    },
+    "conceptVariables": {
+      "Name": "Concept Variable Queries",
+      "Description": "This call will return the following information, when available, about concept variables of a specific source. Source ID, Concept ID, Concept Name, Variable ID, Variable Name.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/:conceptid/country/data",
+      "Example": "To request a list of all available concepts: http://localhost:8080/madhyama/worldbank/source/2/country/data"
+    },
+    "specificConceptVariables": {
+      "Name": "Specific Concept Variable Details",
+      "Description": "This call will return the following information, when available, about concept variables of a specific source. Source ID, Concept ID, Concept Name, Variable ID, Variable Name.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/:conceptid/:countryvariable/data",
+      "Example": "To retrieve a specific concept variable detail for a source (in this example, concept ID is “Country”, Country variable id is “ALB” and Source is World Development Indicators or source 2): http://localhost:8080/madhyama/worldbank/sources/57/Country/ALB/data"
+    },
+    "dataForCombinationOfSourceAndConcept": {
+      "Name": "Data for combination of Sources and Concepts",
+      "Description": "Data can be retrieved for any combination of Sources and Concepts.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/country/:countryvariable/series/:seriesvariable/:conceptid/:value/version/:versionvariable",
+      "Example": "The following request provides data for Country ALB (Albania), Series AG.AGR.TRAC.NO ( Agricultural machinery, tractors), Time 1975, Version 1997 Apr. In this example, “sources”, “country”, “series”, “time”, and “version” are all keywords: http://localhost:8080/madhyama/worldbank/sources/57/country/ALB/series/AG.AGR.TRAC.NO/time/yr1975/version/199704"
+    },
+    "dataForMultipleConcepts": {
+      "Name": "Data one or more concepts",
+      "Description": "To retrieve all the data for one or more Concepts.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/country/:countryvariable/series/:seriesvariable/:conceptid/:value/version/:versionvariable/data",
+      "Example": "To retrieve all the data for one or more Concepts (in this case, the Concept is “time” and the value is “all”): http://localhost:8080/madhyama/worldbank/sources/57/country/ALB/series/AG.AGR.TRAC.NO/time/all/version/199704/data"
+    },
+    "metadata": {
+      "Name": "Metadata using keywords",
+      "Description": "Metadata is data about data. It provides users with more information about the data such as where the data comes from, the way in which the data is measured, and the frequency with which the data is collected, just to name a few. For example, for the indicator Population (total), SP.POP.TOTL, the metadata includes this indicator’s long definition, its sources, its periodicity, its methodology, etc. Retrieves Metadata by using different combinations.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/country/:countryvariable(s)/series/:seriesid/metadata",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/2/country/usa;jpn/series/SP.POP.TOTL/metadata"
+    },
+    "specificMetatype": {
+      "Name": "Specific Metadata Queries",
+      "Description": "Metatype simply describes the type of metadata. Region, Income Group, Periodicity, and Source are all examples of Metatypes. Metatype calls retrieve lists of data types available for the given source. Metatype calls will return the following information in the response, when available. Source ID, Concept ID, Metatype ID, Metatype Detail (name and description). To retrieves metatypes for a specific concept.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/:conceptid/metatypes",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/57/concepts/country/metatypes"
+    },
+    "metadataUsingCombinations": {
+      "Name": "Metadata using combinations",
+      "Description": "Metadata can be retrieved for any combination of Source, Concept and Metatype.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/country/:countryvariable(s)/metatypes/:metatypes/",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/2/country/usa;jpn/metatypes/incomegroup/metadata or http://localhost:8080/madhyama/worldbank/sources/2/country/jpn/metadata or http://localhost:8080/madhyama/worldbank/sources/2/country/usa;jpn/series/SP.POP.TOTL/metadata"
+    },
+    "search": {
+      "Name": "Search using keywords",
+      "Description": "The Metadata API can be used to search metadata. Search calls will return the following information, when available: Source ID, Concept ID, Variable ID, Metatype ID and detail. Retrieves Metadata by using keywords in the query string.",
+      "Path": "/madhyama/worldbank/sources/:sourceId/concepts/:conceptid/metatypes/:metatypes/search/:searchkey",
+      "Example": "http://localhost:8080/madhyama/worldbank/sources/57/search/solid%20fuel"
     }
   }
 }
